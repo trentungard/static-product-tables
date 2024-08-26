@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../src/styles.css"],
+  "sourceRoot": "/Users/trentungard/Desktop/Ungard Digital/Shopify/static-product-tables/extensions/create-table-action/src",
+  "sourcesContent": ["#column-header{\n    text-transform:capitalize;\n}"],
+  "mappings": ";AAAA,CAAC;AACG,kBAAe;AACnB;",
+  "names": []
+}

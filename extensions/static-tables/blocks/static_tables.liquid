@@ -1,0 +1,60 @@
+{% assign table_type = block.settings.product_selection %}
+{% assign specific_product = block.settings.product_specific  %}
+
+{%- assign myObject = product.metafields.custom_table_relationship.data.value  -%}
+{% comment %} <table>
+  <thead>
+    <tr>
+      {%- for header in myObject.columns -%}
+        <th>{{ header |  capitalize }}</th>
+      {%- endfor -%}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in myObject.data %}
+      <tr>
+        {%- for header in myObject.columns -%}
+          <td>{{ row[header] |  capitalize }}</td>
+        {%- endfor -%}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if table_type == 'specific_product' %}
+  <p>Specific product table</p>
+  <table>
+    
+  </table>
+{% else %}
+  <p>All Products</p>
+{% endif %} {% endcomment %}
+
+{% schema %}
+{
+  "name": "Static Product Table",
+  "target": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "radio",
+      "id": "product_selection",
+      "label": "Product Selection",
+      "options": [
+        { "value": "all_products", "label": "All Products" },
+        { "value": "specific_product", "label": "Specific Product" }
+      ],
+      "default": "all_products"
+    },
+    {
+      "type": "product",
+      "id": "product_specific",
+      "label": "Specific Product",
+      "autofill": true
+    }
+  ]
+}
+{% endschema %}
+
